@@ -1,0 +1,18 @@
+{
+  "name": "desktop",
+  "version": "1.0.0",
+  "description": "json initial pkg",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Abaporu",
+  "license": "ISC",
+  "dependencies": {
+    "discord.js": "^12.5.1",
+    "dotenv": "^8.2.0",
+    "mongodb": "^3.6.4",
+    "mongoose": "^5.11.14",
+    "ms": "^2.1.3"
+  }
+}

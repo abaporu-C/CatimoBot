@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+require('dotenv').config();
 
 module.exports = {
     init: () => {
@@ -12,7 +13,7 @@ module.exports = {
             connectTimeoutMS: 10000,
             family: 4
         }
-        mongoose.connect('mongodb+srv://CatimoBot:Megadethvini1@catimobot.czz0o.mongodb.net/magic-db?retryWrites=true&w=majority', dbOptions);
+        mongoose.connect(`mongodb+srv://CatimoBot:${process.env.MONGO_PASS}Megadethvini1@catimobot.czz0o.mongodb.net/magic-db?retryWrites=true&w=majority`, dbOptions);
         mongoose.set('useFindAndModify', false);
         mongoose.Promise = global.Promise;
 

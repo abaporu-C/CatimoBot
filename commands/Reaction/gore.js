@@ -1,10 +1,10 @@
 const fs = require('fs');
 
 module.exports = {
-    name: 'boast',
-    description: 'display boast message',
-    async execute(message, args, Discord, client){
-        const imageFile = fs.readdirSync('./images/boast/');
+    name: 'gore',
+    description: 'display gore pic',
+    async execute(message, args, cmd, client, Discord){
+        const imageFile = fs.readdirSync('./images/gore/');
         const target = message.mentions.users.first()? message.mentions.users.first().id : "";
         const sender = message.member.user.username;
         const index = Math.floor(Math.random() * (imageFile.length))
@@ -12,19 +12,19 @@ module.exports = {
         if(target){
             const embed = new Discord.MessageEmbed()
             .setColor('#927CAF')
-            .setTitle(`Let's go!`)
+            .setTitle(`Let's break some bones!`)
             .setURL('https://www.youtube.com/watch?v=dQw4w9WgXcQ')
-            .setDescription(`<@!${target}> what will you do!? ${sender} is boastin' on you!`)
-            .attachFiles(`./images/boast/${imageFile[index]}`)
+            .setDescription(`<@!${target}> what will you do!? ${sender} says he bathes on your blood!`)
+            .attachFiles(`./images/gore/${imageFile[index]}`)
 
             await message.channel.send(embed);
         } else {
-            const embed = new Discord.MessageEmbed()
+            const embed = await new Discord.MessageEmbed()
             .setColor('#927CAF')
-            .setTitle("Let's Go!")
+            .setTitle("Let's break some bones!")
             .setURL('https://www.youtube.com/watch?v=dQw4w9WgXcQ')
-            .setDescription(`${sender} boasts like he means it!`)
-            .attachFiles(`./images/boast/${imageFile[index]}`)
+            .setDescription(`${sender} likes it bloody!`)
+            .attachFiles(`./images/gore/${imageFile[index]}`)
             
             await message.channel.send(embed);
         } 

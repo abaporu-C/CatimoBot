@@ -1,36 +1,36 @@
 const fs = require('fs');
 
 module.exports = {
-    name: 'blackspell',
-    description: 'Black Spell',
-    async execute(message, args, Discord, client){
-        const imageFile = fs.readdirSync('./images/blackMage/');
+    name: 'bluespell',
+    description: 'Blue Spell',
+    async execute(message, args, cmd, client, Discord){
+        const imageFile = fs.readdirSync('./images/blueMage/');
         const target = message.mentions.users.first()? message.mentions.users.first().id : "";
         const sender = message.member.user.username;
         const index = Math.floor(Math.random() * (imageFile.length));
 
-        if(message.member.roles.cache.some(role => role.name === 'Black Mage')){
+        if(message.member.roles.cache.some(role => role.name === 'Blue Mage')){
             if(target){
                 const embed = new Discord.MessageEmbed()
                 .setColor('#927CAF')
-                .setTitle(`Greatness at any cost!`)
+                .setTitle(`I'll counter that spell, fine Sir!`)
                 .setURL('https://www.youtube.com/watch?v=dQw4w9WgXcQ')
-                .setDescription(`<@!${target}> what will you do!? ${sender} is casting a black spell on you!`)
-                .attachFiles(`./images/blackMage/${imageFile[index]}`)
+                .setDescription(`<@!${target}> what will you do!? ${sender}is playing mind tricks on you!`)
+                .attachFiles(`./images/blueMage/${imageFile[index]}`)
     
                 await message.channel.send(await embed);
             } else {
                 const embed = new Discord.MessageEmbed()
                 .setColor('#927CAF')
-                .setTitle("Greatness at any cost!")
+                .setTitle("I'll counter that spell, fine Sir!")
                 .setURL('https://www.youtube.com/watch?v=dQw4w9WgXcQ')
-                .setDescription(`${sender} has UNLIMITED POWAH!`)
-                .attachFiles(`./images/blackMage/${imageFile[index]}`)
+                .setDescription(`${sender} has intellect beyond comprehension!`)
+                .attachFiles(`./images/blueMage/${imageFile[index]}`)
                 
                 await message.channel.send(await embed);
             }
         } else {
-            message.channel.send("You're not a Black Mage!");
+            message.channel.send("You're not a Blue Mage!");
         }  
     }
 }

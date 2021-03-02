@@ -1,7 +1,7 @@
 module.exports = {
     name: 'colorpie',
     description:'Choosing colors.',
-    async execute(message, args, Discord, client){
+    async execute(message, args, cmd, client, Discord){
         const channel = message.channel.id;
         const redMageRole = message.guild.roles.cache.find(role => role.name === 'Red Mage');
         const blackMageRole = message.guild.roles.cache.find(role => role.name === 'Black Mage');

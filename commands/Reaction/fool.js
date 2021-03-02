@@ -3,7 +3,7 @@ const fs = require('fs');
 module.exports = {
     name: 'fool',
     description: 'calls another member a fool',
-    async execute(message, args, Discord, client){
+    async execute(message, args, cmd, client, Discord){
         const imageFile = fs.readdirSync('./images/fool/');
         const target = message.mentions.users.first()? message.mentions.users.first().id : "";
         const sender = message.member.user.username;

@@ -25,6 +25,16 @@ client.once('ready', () => {
 //Bot prefix
 const prefix = "~";
 
+//Delete member's mongodb profile
+client.on('guildMemberRemove', async member => {
+    const Player = require('./models/player');
+    
+    await Player.findOneAndDelete({playerName: member.user.username, guildName: member.guild.name}, (err, res) => {
+        if(err) console.error(err);
+        else if (res) console.log(`${member.user.username} mongodb file deleted.`)
+    })
+})
+
 //Says hi to new member and creates new player models for mongodb
 client.on('guildMemberAdd', async guildMember => {
     let welcomeRole = await guildMember.guild.roles.fetch()
